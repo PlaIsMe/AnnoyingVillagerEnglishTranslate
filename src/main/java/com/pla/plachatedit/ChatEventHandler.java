@@ -98,7 +98,7 @@ public class ChatEventHandler {
         if (pillagerKing.matches()) {
             String startClause = pillagerKing.group(1);
             String endClause = pillagerKing.group(2);
-            return startClause + "Pillager King" + endClause;
+            return startClause + "Illager King" + endClause;
         }
 
         Matcher villageScout = villageScoutPattern.matcher(plainMessage);
@@ -142,6 +142,7 @@ public class ChatEventHandler {
     public static void onChatMessage(ClientChatReceivedEvent event) {
         String originalText = event.getMessage().getString();
 
+        if(checkExactMessage(event, originalText, "灾厄之王已诞生", "The Illager King has been born")) return;
         if(checkExactMessage(event, originalText, "作者:@Pugilist_Steve (拳史)", "Author: @Pugilist_Steve")) return;
         if(checkExactMessage(event, originalText, "平台:哔哩哔哩 (B站)", "Platform: Bilibili")) return;
         if(checkExactMessage(event, originalText, "如要发布关于此整合包的视频，务必标注原作者及平台!", "If you post a video about this mod pack, you must credit the original author and platform!")) return;
