@@ -149,7 +149,7 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "§4你失败了", "§4You died")) return;
         if(checkExactMessage(event, originalText, "§c你失败了！", "§eYou have saved your respawn point")) return;
         if(checkExactMessage(event, originalText, "你被通缉了！", "You are now wanted!")) return;
-        if(checkExactMessage(event, originalText, "§e你保存了重生点，如果你死了，请再次右键床来保存重生点，否则将随机传送", "§4You died")) return;
+        if(checkExactMessage(event, originalText, "§e你保存了重生点，如果你死了，请再次右键床来保存重生点，否则将随机传送", "§4Saving checkpoint...")) return;
         if(checkExactMessage(event, originalText, "§6你未设置重生点，已被随机传送", "§6You didn’t set a respawn point and have been randomly teleported")) return;
         if(checkExactMessage(event, originalText, "Herobrine已诞生新的附身体", "Herobrine has possessed a new body")) return;
         if(checkExactMessage(event, originalText, "Herobrine第3号分身已降临", "Herobrine's No.3 clone has arrived")) return;
@@ -188,6 +188,7 @@ public class ChatEventHandler {
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?a?你击杀了(.+)$"), "§aYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^死亡坐标(.+)$"), "Death coordinates: ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^已将你的重生点设置到(.+)$"), "Your respawn point has been set to: ")) return;
+        if(checkEndClauseMessage(event, originalText, Pattern.compile("^已将你传送至重生点(.+)$"), "You have been teleported to the respawn point: ")) return;
 
         if(checkStartMidMessage(event, originalText, Pattern.compile("^(.+)直接拿下(.+)，有什么好说的？$")," Just take down ", ", what's there to talk about?")) return;
 
@@ -225,6 +226,9 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)人机操作$"), " plays like a bot")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)诗人握持$"), " Poet's grip")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)菜就多练，小老弟$"), ", if you're bad, just practice more, little bro")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)哎你怎么似了？$"), " Hey, what's wrong with you?")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)多么愚蠢！$"), " How foolish!")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你打的是牛魔$"), ", you are fighting the Bull Demon!")) return;
 
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)死了$"), " died")) return;
