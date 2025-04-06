@@ -183,8 +183,8 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Archer> Fire!")) return;
         if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Archer> Requesting reinforcements!")) return;
         if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Archer> Reinforcements have arrived!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦察兵> What the matter?", "<Village Archer> What the matter?")) return;
         if(checkExactMessage(event, originalText, "<村民> Help !", "<Villager> Help!")) return;
+        if(checkExactMessage(event, originalText, "<村民> Help me!", "<Villager> Help me!")) return;
 
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?e?你击杀了(.+)$"), "§eYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?a?你击杀了(.+)$"), "§aYou killed ")) return;
@@ -231,10 +231,11 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)哎你怎么似了？$"), " Hey, what's wrong with you?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)多么愚蠢！$"), " How foolish!")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你打的是牛魔$"), ", you are fighting the Bull Demon!")) return;
-        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)你也是个神人了$"), ", you're a genius too!")) return;
-
-        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)死了$"), " died")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)What the matter?$"), " What the matter?")) return;
+
+        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)你也是个神人了$"), ", you're a genius too!")) return;
+        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)操你妈，敢不敢装备公平单挑？(.+)$"), " f*** your mom! Dare to fight fair with proper gear?")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)下次再会会你(.+)$"), ", I'll get you next time")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)难绷(.+)$"), " That was tough")) return;
