@@ -105,28 +105,28 @@ public class ChatEventHandler {
         if (villageScout.matches()) {
             String startClause = villageScout.group(1);
             String endClause = villageScout.group(2);
-            return startClause + "Village Scout" + endClause;
+            return startClause + "Village Archer" + endClause;
         }
 
         Matcher blueVillageGuard = blueVillageGuardPattern.matcher(plainMessage);
         if (villageScout.matches()) {
             String startClause = blueVillageGuard.group(1);
             String endClause = blueVillageGuard.group(2);
-            return startClause + "Blue Village Guard" + endClause;
+            return startClause + "Blue Village Knight" + endClause;
         }
 
         Matcher purpleVillageGuard = purpleVillageGuardPattern.matcher(plainMessage);
         if (purpleVillageGuard.matches()) {
             String startClause = purpleVillageGuard.group(1);
             String endClause = purpleVillageGuard.group(2);
-            return startClause + "Purple Village Guard" + endClause;
+            return startClause + "Purple Village Knight" + endClause;
         }
 
         Matcher redVillageGuard = redVillageGuardPattern.matcher(plainMessage);
         if (redVillageGuard.matches()) {
             String startClause = redVillageGuard.group(1);
             String endClause = redVillageGuard.group(2);
-            return startClause + "Red Village Guard" + endClause;
+            return startClause + "Red Village Knight" + endClause;
         }
 
         Matcher entity303 = entity303Pattern.matcher(plainMessage);
@@ -176,13 +176,13 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<X_Grave_X> 走啊，走啊！", "<X_Grave_X> Go on, go on!")) return;
         if(checkExactMessage(event, originalText, "<X_Grave_X> 绝望了吧?", "<X_Grave_X> Feeling desperate, huh?")) return;
         if(checkExactMessage(event, originalText, "<X_Grave_X> 还能坚持多少个回合？", "<X_Grave_X> How many more rounds can you last?")) return;
-        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 这是协议的一部分......", "<Blue Village Guard> This is part of the agreement...")) return;
-        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 请求支援！", "<Blue Village Guard> Requesting support!")) return;
-        if(checkExactMessage(event, originalText, "<村民紫骑兵> 我们遇到了极强的玩家，请求支援！", "<Purple Village Guard> We have encountered an extremely strong player, requesting support!")) return;
-        if(checkExactMessage(event, originalText, "<村民红骑兵> 誓死效力于村民国王...... ", "<Red Village Guard> Sworn to serve the Village King until death...")) return;
-        if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Scout> Fire!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Scout> Requesting reinforcements!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Scout> Reinforcements have arrived!")) return;
+        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 这是协议的一部分......", "<Blue Village Knight> This is part of the agreement...")) return;
+        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 请求支援！", "<Blue Village Knight> Requesting support!")) return;
+        if(checkExactMessage(event, originalText, "<村民紫骑兵> 我们遇到了极强的玩家，请求支援！", "<Purple Village Knight> We have encountered an extremely strong player, requesting support!")) return;
+        if(checkExactMessage(event, originalText, "<村民红骑兵> 誓死效力于村民国王...... ", "<Red Village Knight> Sworn to serve the Village King until death...")) return;
+        if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Archer> Fire!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Archer> Requesting reinforcements!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Archer> Reinforcements have arrived!")) return;
 
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?e?你击杀了(.+)$"), "§eYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?a?你击杀了(.+)$"), "§aYou killed ")) return;
