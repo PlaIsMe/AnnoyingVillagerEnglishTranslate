@@ -16,11 +16,14 @@ import org.slf4j.Logger;
 public class ChatEventHandler {
     private static final Pattern blueDemonPattern = Pattern.compile("^(.*)蓝恶魔(.*)$");
     private static final Pattern pillagerKingPattern = Pattern.compile("^(.*)灾厄之王(.*)$");
-    private static final Pattern villageScoutPattern = Pattern.compile("^(.*)村民侦查兵(.*)$");
+    private static final Pattern villagerScoutPattern = Pattern.compile("^(.*)村民侦查兵(.*)$");
+    private static final Pattern villagerArcherPattern = Pattern.compile("^(.*)村民侦察兵(.*)$");
     private static final Pattern blueVillageGuardPattern = Pattern.compile("^(.*)村民蓝骑兵(.*)$");
     private static final Pattern purpleVillageGuardPattern = Pattern.compile("^(.*)村民紫骑兵(.*)$");
     private static final Pattern redVillageGuardPattern = Pattern.compile("^(.*)村民红骑兵(.*)$");
     private static final Pattern entity303Pattern = Pattern.compile("^(.*)§f实体§43 0 3(.*)$");
+    private static final Pattern villagerSoldierPattern = Pattern.compile("^(.*)村民綠騎兵(.*)$");
+    private static final Pattern villagerRiderPattern = Pattern.compile("^(.*)村民绿骑兵(.*)$");
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -37,6 +40,16 @@ public class ChatEventHandler {
         if (matcher.matches()) {
             String startClause = checkEntityName(matcher.group(1));
             event.setMessage(new TextComponent(startClause + translatedMessage));
+            return true;
+        }
+        return false;
+    }
+
+    static boolean checkHerobrinePossessedMessage(ClientChatReceivedEvent event, String originalText, Pattern PATTERN, String translatedMessage) {
+        Matcher matcher = PATTERN.matcher(originalText);
+        if (matcher.matches()) {
+            String name = checkEntityName(matcher.group(1));
+            event.setMessage(new TextComponent( "System Message: " + name + " has been possessed by Herobrine."));
             return true;
         }
         return false;
@@ -101,32 +114,46 @@ public class ChatEventHandler {
             return startClause + "Illager King" + endClause;
         }
 
-        Matcher villageScout = villageScoutPattern.matcher(plainMessage);
-        if (villageScout.matches()) {
-            String startClause = villageScout.group(1);
-            String endClause = villageScout.group(2);
-            return startClause + "Village Archer" + endClause;
+        Matcher villagerScout = villagerScoutPattern.matcher(plainMessage);
+        if (villagerScout.matches()) {
+            String startClause = villagerScout.group(1);
+            String endClause = villagerScout.group(2);
+            return startClause + "Villager Archer" + endClause;
+        }
+
+        Matcher villagerArcher = villagerArcherPattern.matcher(plainMessage);
+        if (villagerArcher.matches()) {
+            String startClause = villagerArcher.group(1);
+            String endClause = villagerArcher.group(2);
+            return startClause + "Villager Archer" + endClause;
+        }
+
+        Matcher villagerRider = villagerRiderPattern.matcher(plainMessage);
+        if (villagerRider.matches()) {
+            String startClause = villagerRider.group(1);
+            String endClause = villagerRider.group(2);
+            return startClause + "Villager Rider" + endClause;
         }
 
         Matcher blueVillageGuard = blueVillageGuardPattern.matcher(plainMessage);
-        if (villageScout.matches()) {
+        if (blueVillageGuard.matches()) {
             String startClause = blueVillageGuard.group(1);
             String endClause = blueVillageGuard.group(2);
-            return startClause + "Blue Village Knight" + endClause;
+            return startClause + "Blue Villager Knight" + endClause;
         }
 
         Matcher purpleVillageGuard = purpleVillageGuardPattern.matcher(plainMessage);
         if (purpleVillageGuard.matches()) {
             String startClause = purpleVillageGuard.group(1);
             String endClause = purpleVillageGuard.group(2);
-            return startClause + "Purple Village Knight" + endClause;
+            return startClause + "Purple Villager Knight" + endClause;
         }
 
         Matcher redVillageGuard = redVillageGuardPattern.matcher(plainMessage);
         if (redVillageGuard.matches()) {
             String startClause = redVillageGuard.group(1);
             String endClause = redVillageGuard.group(2);
-            return startClause + "Red Village Knight" + endClause;
+            return startClause + "Red Villager Knight" + endClause;
         }
 
         Matcher entity303 = entity303Pattern.matcher(plainMessage);
@@ -134,6 +161,13 @@ public class ChatEventHandler {
             String startClause = entity303.group(1);
             String endClause = entity303.group(2);
             return startClause + "§fEntity §43 0 3" + endClause;
+        }
+
+        Matcher villagerSoldier = villagerSoldierPattern.matcher(plainMessage);
+        if (villagerSoldier.matches()) {
+            String startClause = villagerSoldier.group(1);
+            String endClause = villagerSoldier.group(2);
+            return startClause + "Villager Soldier" + endClause;
         }
         return plainMessage;
     }
@@ -150,7 +184,7 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "§c你失败了！", "§eYou have saved your respawn point")) return;
         if(checkExactMessage(event, originalText, "你被通缉了！", "You are now wanted!")) return;
         if(checkExactMessage(event, originalText, "§e你保存了重生点，如果你死了，请再次右键床来保存重生点，否则将随机传送", "§4Saving checkpoint...")) return;
-        if(checkExactMessage(event, originalText, "§6你未设置重生点，已被随机传送", "§6You didn’t set a respawn point and have been randomly teleported")) return;
+        if(checkExactMessage(event, originalText, "§6你未设置重生点，已被随机传送", "§6You are too weak !!!")) return;
         if(checkExactMessage(event, originalText, "Herobrine已诞生新的附身体", "Herobrine has possessed a new body")) return;
         if(checkExactMessage(event, originalText, "Herobrine第3号分身已降临", "Herobrine's No.3 clone has arrived")) return;
         if(checkExactMessage(event, originalText, "<Steve> 我叫Steve，我是来摧毁Herobrine的", "<Steve> My name is Steve, I am here to destroy Herobrine")) return;
@@ -183,8 +217,13 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Archer> Fire!")) return;
         if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Archer> Requesting reinforcements!")) return;
         if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Archer> Reinforcements have arrived!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦察兵> What the matter?", "<Village Archer> What the matter?")) return;
         if(checkExactMessage(event, originalText, "<村民> Help !", "<Villager> Help!")) return;
         if(checkExactMessage(event, originalText, "<村民> Help me!", "<Villager> Help me!")) return;
+        if(checkExactMessage(event, originalText, "在聊天栏里输入/leave @s可解脱", "Type /leave @s in the chat to break free.")) return;
+        if(checkExactMessage(event, originalText, "附身失败，你因实体错误而被游戏删除了", "Possession failed. You were removed from the game due to an entity error.")) return;
+
+        if(checkHerobrinePossessedMessage(event, originalText, Pattern.compile("^系统提示：(.+)已被Herobrine附身$"), "")) return;
 
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?e?你击杀了(.+)$"), "§eYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?a?你击杀了(.+)$"), "§aYou killed ")) return;
@@ -231,11 +270,12 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)哎你怎么似了？$"), " Hey, what's wrong with you?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)多么愚蠢！$"), " How foolish!")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你打的是牛魔$"), ", you are fighting the Bull Demon!")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)What the matter?$"), "What the matter?")) return;
+
+        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)死了$"), " died")) return;
-        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)What the matter?$"), " What the matter?")) return;
 
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)你也是个神人了$"), ", you're a genius too!")) return;
-        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)操你妈，敢不敢装备公平单挑？(.+)$"), " f*** your mom! Dare to fight fair with proper gear?")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)下次再会会你(.+)$"), ", I'll get you next time")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)难绷(.+)$"), " That was tough")) return;
