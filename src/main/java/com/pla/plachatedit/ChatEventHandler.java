@@ -176,14 +176,17 @@ public class ChatEventHandler {
     public static void onChatMessage(ClientChatReceivedEvent event) {
         String originalText = event.getMessage().getString();
 
+        if(checkExactMessage(event, originalText, "你未保存重生点，已被随机传送", "You didn't save your respawn point and have been teleported randomly")) return;
+        if(checkExactMessage(event, originalText, "已传送至重生点，请记得再次点床来保存", "You have been teleported to the respawn point. Remember to click the bed again to save it.")) return;
+        if(checkExactMessage(event, originalText, "再次点床来保存重生点", "Click the bed again to set your respawn point.")) return;
         if(checkExactMessage(event, originalText, "灾厄之王已诞生", "The Illager King has been born")) return;
-        if(checkExactMessage(event, originalText, "作者:@Pugilist_Steve (拳史)", "Author: @Pugilist_Steve")) return;
+        if(checkExactMessage(event, originalText, "作者:@Pugilist_Steve", "Author: @Pugilist_Steve")) return;
         if(checkExactMessage(event, originalText, "平台:哔哩哔哩 (B站)", "Platform: Bilibili")) return;
         if(checkExactMessage(event, originalText, "如要发布关于此整合包的视频，务必标注原作者及平台!", "If you post a video about this mod pack, you must credit the original author and platform!")) return;
         if(checkExactMessage(event, originalText, "§4你失败了", "§4You died")) return;
         if(checkExactMessage(event, originalText, "§c你失败了！", "§eYou have saved your respawn point")) return;
         if(checkExactMessage(event, originalText, "你被通缉了！", "You are now wanted!")) return;
-        if(checkExactMessage(event, originalText, "§e你保存了重生点，如果你死了，请再次右键床来保存重生点，否则将随机传送", "§4Saving checkpoint...")) return;
+        if(checkExactMessage(event, originalText, "§e你保存了重生点，如果你死了，请再次右键床来保存重生点，否则将随机传送", "§eYou have set your respawn point. If you die, please right-click the bed again to save your respawn point, otherwise you will be teleported randomly")) return;
         if(checkExactMessage(event, originalText, "§6你未设置重生点，已被随机传送", "§6You are too weak !!!")) return;
         if(checkExactMessage(event, originalText, "Herobrine已诞生新的附身体", "Herobrine has possessed a new body")) return;
         if(checkExactMessage(event, originalText, "Herobrine第3号分身已降临", "Herobrine's No.3 clone has arrived")) return;
@@ -222,6 +225,9 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<村民> Help me!", "<Villager> Help me!")) return;
         if(checkExactMessage(event, originalText, "在聊天栏里输入/leave @s可解脱", "Type /leave @s in the chat to break free.")) return;
         if(checkExactMessage(event, originalText, "附身失败，你因实体错误而被游戏删除了", "Possession failed. You were removed from the game due to an entity error.")) return;
+        if(checkExactMessage(event, originalText, "您是此武器的主人", "You are the master of this weapon")) return;
+        if(checkExactMessage(event, originalText, "Herobrine高级分身已被传送至云端", "Herobrine Advanced Clone has been teleported to the cloud.")) return;
+        if(checkExactMessage(event, originalText, "分身已被摧毁，数据已传入终端", "The clone has been destroyed, and the data has been transmitted to the terminal.")) return;
 
         if(checkHerobrinePossessedMessage(event, originalText, Pattern.compile("^系统提示：(.+)已被Herobrine附身$"), "")) return;
 
@@ -232,6 +238,7 @@ public class ChatEventHandler {
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^已将你传送至重生点(.+)$"), "You have been teleported to the respawn point: ")) return;
 
         if(checkStartMidMessage(event, originalText, Pattern.compile("^(.+)直接拿下(.+)，有什么好说的？$")," Just take down ", ", what's there to talk about?")) return;
+        if(checkStartMidMessage(event, originalText, Pattern.compile("^(.+)拼尽全力也无法战胜我吗？哈基(.+)你这家伙$")," Even giving it your all, you still can't defeat me? Haki ", ", you bastard!")) return;
 
         if(checkStartMidEndMessage(event, originalText, Pattern.compile("^(.+)哈哈哈(.+)真好笑，一个(.+)躺在床上，嘴里有节奏地念着着盖伦～发发$")," Hahaha ", " so funny, ", " is lying on the bed, rhythmically chanting Garen~ Fa Fa.")) return;
 
@@ -271,10 +278,12 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)多么愚蠢！$"), " How foolish!")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你打的是牛魔$"), ", you are fighting the Bull Demon!")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)What the matter?$"), "What the matter?")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)为什么?$"), "Why?")) return;
 
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)死了$"), " died")) return;
 
+        if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)乐子(.+)$"), " Joke")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)你也是个神人了$"), ", you're a genius too!")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)操你妈，敢不敢装备公平单挑？(.+)$"), " f*** your mom! Dare to fight fair with proper gear?")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)下次再会会你(.+)$"), ", I'll get you next time")) return;
