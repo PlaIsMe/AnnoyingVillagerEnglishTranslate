@@ -118,14 +118,14 @@ public class ChatEventHandler {
         if (villagerScout.matches()) {
             String startClause = villagerScout.group(1);
             String endClause = villagerScout.group(2);
-            return startClause + "Villager Archer" + endClause;
+            return startClause + "Villager Scout" + endClause;
         }
 
         Matcher villagerArcher = villagerArcherPattern.matcher(plainMessage);
         if (villagerArcher.matches()) {
             String startClause = villagerArcher.group(1);
             String endClause = villagerArcher.group(2);
-            return startClause + "Villager Archer" + endClause;
+            return startClause + "Villager Scout" + endClause;
         }
 
         Matcher villagerRider = villagerRiderPattern.matcher(plainMessage);
@@ -139,21 +139,21 @@ public class ChatEventHandler {
         if (blueVillageGuard.matches()) {
             String startClause = blueVillageGuard.group(1);
             String endClause = blueVillageGuard.group(2);
-            return startClause + "Blue Villager Knight" + endClause;
+            return startClause + "Blue Villager Generals" + endClause;
         }
 
         Matcher purpleVillageGuard = purpleVillageGuardPattern.matcher(plainMessage);
         if (purpleVillageGuard.matches()) {
             String startClause = purpleVillageGuard.group(1);
             String endClause = purpleVillageGuard.group(2);
-            return startClause + "Purple Villager Knight" + endClause;
+            return startClause + "Purple Villager Generals" + endClause;
         }
 
         Matcher redVillageGuard = redVillageGuardPattern.matcher(plainMessage);
         if (redVillageGuard.matches()) {
             String startClause = redVillageGuard.group(1);
             String endClause = redVillageGuard.group(2);
-            return startClause + "Red Villager Knight" + endClause;
+            return startClause + "Red Villager Generals" + endClause;
         }
 
         Matcher entity303 = entity303Pattern.matcher(plainMessage);
@@ -213,14 +213,14 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<X_Grave_X> 走啊，走啊！", "<X_Grave_X> Go on, go on!")) return;
         if(checkExactMessage(event, originalText, "<X_Grave_X> 绝望了吧?", "<X_Grave_X> Feeling desperate, huh?")) return;
         if(checkExactMessage(event, originalText, "<X_Grave_X> 还能坚持多少个回合？", "<X_Grave_X> How many more rounds can you last?")) return;
-        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 这是协议的一部分......", "<Blue Village Knight> This is part of the agreement...")) return;
-        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 请求支援！", "<Blue Village Knight> Requesting support!")) return;
-        if(checkExactMessage(event, originalText, "<村民紫骑兵> 我们遇到了极强的玩家，请求支援！", "<Purple Village Knight> We have encountered an extremely strong player, requesting support!")) return;
-        if(checkExactMessage(event, originalText, "<村民红骑兵> 誓死效力于村民国王...... ", "<Red Village Knight> Sworn to serve the Village King until death...")) return;
-        if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Archer> Fire!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Archer> Requesting reinforcements!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Archer> Reinforcements have arrived!")) return;
-        if(checkExactMessage(event, originalText, "<村民侦察兵> What the matter?", "<Village Archer> What the matter?")) return;
+        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 这是协议的一部分......", "<Blue Village Generals> This is part of the agreement...")) return;
+        if(checkExactMessage(event, originalText, "<村民蓝骑兵> 请求支援！", "<Blue Village Generals> Requesting support!")) return;
+        if(checkExactMessage(event, originalText, "<村民紫骑兵> 我们遇到了极强的玩家，请求支援！", "<Purple Village Generals> We have encountered an extremely strong player, requesting support!")) return;
+        if(checkExactMessage(event, originalText, "<村民红骑兵> 誓死效力于村民国王...... ", "<Red Village Generals> Sworn to serve the Village King until death...")) return;
+        if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Scout> Fire!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Scout> Requesting reinforcements!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Scout> Reinforcements have arrived!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦察兵> What the matter?", "<Village Scout> What the matter?")) return;
         if(checkExactMessage(event, originalText, "<村民> Help !", "<Villager> Help!")) return;
         if(checkExactMessage(event, originalText, "<村民> Help me!", "<Villager> Help me!")) return;
         if(checkExactMessage(event, originalText, "在聊天栏里输入/leave @s可解脱", "Type /leave @s in the chat to break free.")) return;
