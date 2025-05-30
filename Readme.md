@@ -20,11 +20,11 @@
 - 🪵 Adds a debug log entry when an untranslated chat message is detected, displaying:
 - ⚙️ Debug messages can be disabled via the config file.
 - 📦 For full item name translations, please install the recommended resource pack:  
-  [Download Resourcepack](https://legacy.curseforge.com/minecraft/texture-packs/annoying-villager-item-translate)
+  [Download Resourcepack](https://www.curseforge.com/minecraft/texture-packs/annoying-villager-item-translate)
 
 ## 🐞 Found an untranslated message?
 
 If you encounter a message that hasn’t been translated yet, please open an issue this Github project
 
 ## ✨ Download links
-[Download Mod](https://legacy.curseforge.com/minecraft/mc-mods/annoying-villager-chat-translate)
+[Download Mod](https://www.curseforge.com/minecraft/mc-mods/annoying-villager-chat-translate)
