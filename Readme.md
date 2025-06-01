@@ -4,11 +4,10 @@
 
 ## 📸 Example
 
-### Before Installing the Mod
-![Before Installing](https://i.postimg.cc/6Qj6mByH/before.png)
+### Mod Showcase Video
 
-### After Installing the Mod
-![After Installing](https://i.postimg.cc/50X9cDzf/after.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/knba9VnqAMk"
+title="Mod Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## ✨ Features
 
