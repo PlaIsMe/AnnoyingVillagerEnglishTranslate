@@ -6,7 +6,7 @@
 
 ### Mod Showcase Video
 
-[▶️ Watch the showcase on YouTube](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[▶️ Watch the showcase on YouTube](https://www.youtube.com/watch?v=knba9VnqAMk)
 
 ## ✨ Features
 
