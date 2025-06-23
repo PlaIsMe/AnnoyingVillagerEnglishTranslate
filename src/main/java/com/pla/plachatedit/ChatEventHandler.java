@@ -24,6 +24,7 @@ public class ChatEventHandler {
     private static final Pattern entity303Pattern = Pattern.compile("^(.*)§f实体§43 0 3(.*)$");
     private static final Pattern villagerSoldierPattern = Pattern.compile("^(.*)村民綠騎兵(.*)$");
     private static final Pattern villagerRiderPattern = Pattern.compile("^(.*)村民绿骑兵(.*)$");
+    private static final Pattern villagerScoutCaptainPattern = Pattern.compile("^(.*)村民侦察兵队长(.*)$");
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -45,7 +46,7 @@ public class ChatEventHandler {
         return false;
     }
 
-    static boolean checkHerobrinePossessedMessage(ClientChatReceivedEvent event, String originalText, Pattern PATTERN, String translatedMessage) {
+    static boolean checkHerobrinePossessedMessage(ClientChatReceivedEvent event, String originalText, Pattern PATTERN) {
         Matcher matcher = PATTERN.matcher(originalText);
         if (matcher.matches()) {
             String name = checkEntityName(matcher.group(1));
@@ -169,6 +170,13 @@ public class ChatEventHandler {
             String endClause = villagerSoldier.group(2);
             return startClause + "Villager Soldier" + endClause;
         }
+
+        Matcher villagerScoutCaptain = villagerScoutCaptainPattern.matcher(plainMessage);
+        if (villagerScoutCaptain.matches()) {
+            String startClause = villagerScoutCaptain.group(1);
+            String endClause = villagerScoutCaptain.group(2);
+            return startClause + "Villager Scout Captain" + endClause;
+        }
         return plainMessage;
     }
 
@@ -176,6 +184,13 @@ public class ChatEventHandler {
     public static void onChatMessage(ClientChatReceivedEvent event) {
         String originalText = event.getMessage().getString();
 
+        if(checkExactMessage(event, originalText, "已切换伪装模式", "Switched to disguise mode")) return;
+        if(checkExactMessage(event, originalText, "冷却中", "On cooldown")) return;
+        if(checkExactMessage(event, originalText, "已切换攻击模式", "Switched to attack mode")) return;
+        if(checkExactMessage(event, originalText, "请远离", "Please stay away")) return;
+        if(checkExactMessage(event, originalText, "陷阱已安放", "The trap has been set")) return;
+        if(checkExactMessage(event, originalText, "使用下蹲键+右键切换伪装/攻击模式", "Use the crouch key + right-click to switch between disguise/attack mode.")) return;
+        if(checkExactMessage(event, originalText, "你已带上村民头套，现在村民士兵将不会攻击你", "You are now wearing a villager head; villager soldiers will no longer attack you.")) return;
         if(checkExactMessage(event, originalText, "你未保存重生点，已被随机传送", "You didn't save your respawn point and have been teleported randomly")) return;
         if(checkExactMessage(event, originalText, "已传送至重生点，请记得再次点床来保存", "You have been teleported to the respawn point. Remember to click the bed again to save it.")) return;
         if(checkExactMessage(event, originalText, "再次点床来保存重生点", "Click the bed again to set your respawn point.")) return;
@@ -204,8 +219,8 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<蓝恶魔> 三叉戟狂欢节！！！", "<Blue Demon> Trident Carnival!!!")) return;
         if(checkExactMessage(event, originalText, "<蓝恶魔> 小看别人只会突出你有多么无知", "<Blue Demon> Underestimating others only highlights how ignorant you are")) return;
         if(checkExactMessage(event, originalText, "<蓝恶魔> 终究顶不住这暴乱世界的压力……", "<Blue Demon> In the end, you couldn't withstand the pressure of this chaotic world...")) return;
-        if(checkExactMessage(event, originalText, "<灾厄之王> 作为王，可不会死的这么容易", "<Pillager King> As a king, I won’t die so easily")) return;
-        if(checkExactMessage(event, originalText, "<灾厄之王> 看来，王终究还是大意了……", "<Pillager King> It seems that the king was careless after all…")) return;
+        if(checkExactMessage(event, originalText, "<灾厄之王> 作为王，可不会死的这么容易", "<Illager King> As a king, I won’t die so easily")) return;
+        if(checkExactMessage(event, originalText, "<灾厄之王> 看来，王终究还是大意了……", "<Illager King> It seems that the king was careless after all…")) return;
         if(checkExactMessage(event, originalText, "<蓝恶魔> 你急了", "<Blue Demon> You're getting mad")) return;
         if(checkExactMessage(event, originalText, "<Chris> 史蒂夫，对不起了", "<Chris> Steve, I'm sorry")) return;
         if(checkExactMessage(event, originalText, "<Herobrine> 该我出手了……", "<Herobrine> It's my turn to strike...")) return;
@@ -219,6 +234,7 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "<村民红骑兵> 誓死效力于村民国王...... ", "<Red Village Generals> Sworn to serve the Village King until death...")) return;
         if(checkExactMessage(event, originalText, "<村民侦查兵> Fire！", "<Village Scout> Fire!")) return;
         if(checkExactMessage(event, originalText, "<村民侦查兵> 请求支援！", "<Village Scout> Requesting reinforcements!")) return;
+        if(checkExactMessage(event, originalText, "<村民侦察兵> 请求支援！", "<Village Scout> Requesting backup!")) return;
         if(checkExactMessage(event, originalText, "<村民侦察兵> 援军到了！", "<Village Scout> Reinforcements have arrived!")) return;
         if(checkExactMessage(event, originalText, "<村民侦察兵> What the matter?", "<Village Scout> What the matter?")) return;
         if(checkExactMessage(event, originalText, "<村民> Help !", "<Villager> Help!")) return;
@@ -229,8 +245,9 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "Herobrine高级分身已被传送至云端", "Herobrine Advanced Clone has been teleported to the cloud.")) return;
         if(checkExactMessage(event, originalText, "分身已被摧毁，数据已传入终端", "The clone has been destroyed, and the data has been transmitted to the terminal.")) return;
 
-        if(checkHerobrinePossessedMessage(event, originalText, Pattern.compile("^系统提示：(.+)已被Herobrine附身$"), "")) return;
+        if(checkHerobrinePossessedMessage(event, originalText, Pattern.compile("^系统提示：(.+)已被Herobrine附身$"))) return;
 
+        if(checkEndClauseMessage(event, originalText, Pattern.compile("^Summoned new(.+)$"), "Summoned new ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?e?你击杀了(.+)$"), "§eYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^§?a?你击杀了(.+)$"), "§aYou killed ")) return;
         if(checkEndClauseMessage(event, originalText, Pattern.compile("^死亡坐标(.+)$"), "Death coordinates: ")) return;
@@ -279,6 +296,7 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你打的是牛魔$"), ", you are fighting the Bull Demon!")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)What the matter?$"), "What the matter?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)为什么?$"), "Why?")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)誓死效力于村民国王......$"), "Sworn to serve the Villager King unto death...")) return;
 
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)被(.+)杀死了$"), " was killed by ")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)死了$"), " died")) return;
@@ -310,6 +328,6 @@ public class ChatEventHandler {
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)你也就只会左键摁死了(.+)$"), " All you can do is spam left-click to death")) return;
         if(checkStartEndMessage(event, originalText, Pattern.compile("^(.+)这么菜？不会是原神玩多了导致的吧？(.+)$"), " So bad? Could it be that you've played too much Genshin Impact?")) return;
 
-        LOGGER.info("PlaChatEdit: unidentified message: {}", originalText);
+//        LOGGER.info("PlaChatEdit: unidentified message: {}", originalText);
     }
 }
