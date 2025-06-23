@@ -53,13 +53,14 @@ public class TooltipOverride {
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:join_grave_item", "Right-click on Grave to join him.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:faguangdezhenzhu", "A shorter cooldown variant of the ender pearl.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:fumomumen", "Very unique wooden door, novices all say it is good.")) return;
-        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:bbianzhonghuoyuansuhejinwandao", "§5The power of mutant elements fills the sword.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:hhuoyuansuhejinwandao", "§5The power of mutant elements fills the sword.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:zhaohuanhimzuanjiafenshen", "Right-click to summon Diamond Armor Herobrine.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:fulubuhuoqi", "Throwable handcuffs.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:sifangsheren", "§5One of Herobrine's legendary weapons, release form.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:zhaohuansteve", "Right-click to summon Steve.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:mumen", "Very unique wooden door, novices all say it is good.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagers:villager_head", "A tool for disguising villagers. Right-click to wear it. Crouch + right-click to switch between camouflage and attack mode")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:join_player_item", "Right-click on player team.")) return;
     }
 
 

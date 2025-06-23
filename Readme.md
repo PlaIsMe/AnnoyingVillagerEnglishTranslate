@@ -10,14 +10,11 @@
 
 ## ✨ Features
 
-- 🔄 Automatically translates Chinese chat from:
-    - NPC players
-    - Villager Scouts
-    - Generals
-    - Other entities from the Annoying Villager modpack
-- 🪵 Adds a debug log entry when an untranslated chat message is detected, displaying:
-- ⚙️ Debug messages can be disabled via the config file.
-- 📦 For full item name translations, please install the recommended resource pack:  
+- Automatically translates Chinese chat
+- Automatically translates Chinese entity's name
+- Automatically translates Chinese item's tooltip
+
+## 📦 For full item name translations, please install the recommended resource pack:  
   [Download Resourcepack](https://www.curseforge.com/minecraft/texture-packs/annoying-villager-item-translate)
 
 ## 🐞 Found an untranslated message?
