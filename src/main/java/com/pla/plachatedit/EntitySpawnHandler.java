@@ -59,6 +59,7 @@ public class EntitySpawnHandler {
         if (registerEntity(entity, "annoying_villagersbychentu:lu_cun_qi", "Green Village Generals")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:hong_cun_qi", "Red Village Generals")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:zi_cun_qi", "Purple Village Generals")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:cun_zhen_fu_lu", "Village Scout Prisoner")) return;
 
 //        String originalName = entity.getCustomName() != null
 //                ? entity.getCustomName().getString()

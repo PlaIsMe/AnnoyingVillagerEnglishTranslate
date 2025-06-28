@@ -28,6 +28,15 @@ public class ChatEventHandler {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    static boolean removeMessage(ClientChatReceivedEvent event, String originalText, Pattern PATTERN) {
+        Matcher matcher = PATTERN.matcher(originalText);
+        if (matcher.matches()) {
+            event.setMessage(new TextComponent( ""));
+            return true;
+        }
+        return false;
+    }
+
     static boolean checkExactMessage(ClientChatReceivedEvent event, String originalText, String message, String translatedMessage) {
         if (originalText.contains(message)) {
             event.setMessage(new TextComponent(translatedMessage));
@@ -184,6 +193,13 @@ public class ChatEventHandler {
     public static void onChatMessage(ClientChatReceivedEvent event) {
         String originalText = event.getMessage().getString();
 
+        if(checkExactMessage(event, originalText, "作者:@Pugilist_Steve", "Author: @Pugilist_Steve")) return;
+        if(checkExactMessage(event, originalText, "§a作者:@Pugilist_Steve", "§aAuthor: @Pugilist_Steve")) return;
+        if(checkExactMessage(event, originalText, "平台:哔哩哔哩 (B站)", "Platform: Bilibili")) return;
+        if(checkExactMessage(event, originalText, "§§a作者:Pugilist_Steve 平台:Bilibili", "§aAuthor: @Pugilist_Steve Platform: Bilibili")) return;
+        if(checkExactMessage(event, originalText, "如要发布关于此整合包的视频，务必标注原作者及平台!", "If you post a video about this mod pack, you must credit the original author and platform!")) return;
+
+        if(checkExactMessage(event, originalText, "灾厄之王已诞生", "The Illager King has been born")) return;
         if(checkExactMessage(event, originalText, "已切换伪装模式", "Switched to disguise mode")) return;
         if(checkExactMessage(event, originalText, "冷却中", "On cooldown")) return;
         if(checkExactMessage(event, originalText, "已切换攻击模式", "Switched to attack mode")) return;
@@ -194,10 +210,6 @@ public class ChatEventHandler {
         if(checkExactMessage(event, originalText, "你未保存重生点，已被随机传送", "You didn't save your respawn point and have been teleported randomly")) return;
         if(checkExactMessage(event, originalText, "已传送至重生点，请记得再次点床来保存", "You have been teleported to the respawn point. Remember to click the bed again to save it.")) return;
         if(checkExactMessage(event, originalText, "再次点床来保存重生点", "Click the bed again to set your respawn point.")) return;
-        if(checkExactMessage(event, originalText, "灾厄之王已诞生", "The Illager King has been born")) return;
-        if(checkExactMessage(event, originalText, "作者:@Pugilist_Steve", "Author: @Pugilist_Steve")) return;
-        if(checkExactMessage(event, originalText, "平台:哔哩哔哩 (B站)", "Platform: Bilibili")) return;
-        if(checkExactMessage(event, originalText, "如要发布关于此整合包的视频，务必标注原作者及平台!", "If you post a video about this mod pack, you must credit the original author and platform!")) return;
         if(checkExactMessage(event, originalText, "§4你失败了", "§4You died")) return;
         if(checkExactMessage(event, originalText, "§c你失败了！", "§eYou have saved your respawn point")) return;
         if(checkExactMessage(event, originalText, "你被通缉了！", "You are now wanted!")) return;
@@ -275,6 +287,7 @@ public class ChatEventHandler {
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)玩不起，急了哈哈?$"), " Desperate now?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)还要再试一次吗？?$"), " Want to try again?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)玩不起，急了哈哈?$"), " Can't handle it? Getting mad? Haha.")) return;
+        if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)小哈基人就这？$"), " Little Haki, is that all?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)就这？$"), " Is that all?")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)我操你妈$"), ", f** you")) return;
         if(checkStartClauseMessage(event, originalText, Pattern.compile("^(.+)你就这点实力吗？$"), ", is that all you've got?")) return;

@@ -1,5 +1,6 @@
 package com.pla.plachatedit;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
@@ -7,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.slf4j.Logger;
 
 import java.util.List;
 
@@ -61,6 +63,10 @@ public class TooltipOverride {
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:mumen", "Very unique wooden door, novices all say it is good.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagers:villager_head", "A tool for disguising villagers. Right-click to wear it. Crouch + right-click to switch between camouflage and attack mode")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:join_player_item", "Right-click on player team.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:anyingheiyaoshi", "Shadow obsidian fired by Shadow's clone")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:baozhaxiaodao", "Right-click can detonate TNT")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:bbianzhonghuoyuansuhejinwandao", "§5The power of mutant elements fills the sword.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:zuan_shi_ci_yin_jian", "A special diamon weapon, squat and right-click to release skills.")) return;
     }
 
 
