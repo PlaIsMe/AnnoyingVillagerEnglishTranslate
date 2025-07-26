@@ -108,6 +108,7 @@
   "entity.annoying_villagers.blue_demon_r": "Blue Demon",
   "subtitles.c4planted": "",
   "item.annoying_villagers.smoke": "Smoke Grenade",
+  "item.annoying_villagers.hard_great_sword_skill" : "Blade of Broken Wind",
   "advancements.onemoretime.descr": "Successfully defuse the C4 during countdown",
   "enchantment.annoying_villagers.fastshot": "Fast Bow Shot",
   "gui.annoying_villagers.music_search.label_name": "Enter Song Name",
@@ -138,5 +139,7 @@
   "entity.annoying_villagers.herobrine": "Herobrine Clone",
   "subtitles.gun_shot": "",
   "skill.annoying_villagers.clash": "Clash Blades",
-  "skill.annoying_villagers.clash.tooltip": "Cancels out the opponent's attack when attacking"
+  "skill.annoying_villagers.clash.tooltip": "Cancels out the opponent's attack when attacking",
+  "effect.annoying_villagers.ec": "Execution",
+  "effect.annoying_villagers.ec_player": "Execution"
 }

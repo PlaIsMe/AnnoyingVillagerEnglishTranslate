@@ -48,7 +48,7 @@ public class EntitySpawnHandler {
         if (registerEntity(entity, "annoying_villagersbychentu:bei_gan_ran_jian_bing_guo_zi", "Infected Pancake Fruit")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:cun_min_zhen_cha_bing", "Villager Scout")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:herobrine_2", "§5Herobrine§f Clone 2")) return;
-        if (registerEntity(entity, "annoying_villagersbychentu:herobrine_3", "§5Herobrine§f Clone 3")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:herobrine_3", "§5Herobrine§f")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:anyinghimfenshen", "§5Herobrine§f Shadow Clone")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:dark_herobrine", "Dark §5Herobrine")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:gaojiherobrine", "Advanced §5Herobrine")) return;
@@ -60,6 +60,18 @@ public class EntitySpawnHandler {
         if (registerEntity(entity, "annoying_villagersbychentu:hong_cun_qi", "Red Village Generals")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:zi_cun_qi", "Purple Village Generals")) return;
         if (registerEntity(entity, "annoying_villagersbychentu:cun_zhen_fu_lu", "Village Scout Prisoner")) return;
+        if (registerEntity(entity, "annoying_villagers:blue_demon_2", "Blue Demon")) return;
+        if (registerEntity(entity, "annoying_villagers:blue_demon_r", "Blue Demon")) return;
+        if (registerEntity(entity, "annoying_villagers:blue_demon_end", "Blue Demon")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:heiyaoshitiekuilei", "Obsidian golem")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:hong_cun_qi_fu_lu", "Red Village Generals Prisoner")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:jianbingguozi", "Pancake Fruit")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:lan_cun_qi_fu_lu", "Blue Village Generals Prisoner")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:lvcunqifulu", "Green Village Generals Prisoner")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:zi_cun_qi_fu_lu", "Purple Village Generals Prisoner")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:di_jiherobrine", "Herobrine Low-level Clone")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:dijiyinfenshen", "Herobrine Low-level Shadow Clone")) return;
+        if (registerEntity(entity, "annoying_villagersbychentu:herobrinefenshen", "Herobrine Clone")) return;
 
 //        String originalName = entity.getCustomName() != null
 //                ? entity.getCustomName().getString()

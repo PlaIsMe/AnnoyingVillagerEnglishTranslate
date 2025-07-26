@@ -67,6 +67,14 @@ public class TooltipOverride {
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:baozhaxiaodao", "Right-click can detonate TNT")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:bbianzhonghuoyuansuhejinwandao", "§5The power of mutant elements fills the sword.")) return;
         if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:zuan_shi_ci_yin_jian", "A special diamon weapon, squat and right-click to release skills.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:sherenjianbing", "The broken Blade of the Legendary Serpent Blade, a magnetic alloy made of iron and mixed obsidian.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:sherensuipian", "The broken Blade of the Legendary Serpent Blade, a magnetic alloy made of iron and mixed obsidian.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:sherenjian", "The broken Blade of the Legendary Serpent Blade, a magnetic alloy made of iron and mixed obsidian.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:heiyaoshikuileizhiyan", "Summons the obsidian golem.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:jiemodeshu", "Right click to obtain golem's eyes.")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:kuileizhiyan", "Summons the enchanted golem")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:huoyankuileizhiyan", "Summons the flame golem")) return;
+        if(registerTooltip(event.getItemStack(), event.getToolTip(), "annoying_villagersbychentu:enchanted_bed", "Right-click the enchanted bed once to save the spawn point. You will not drop your items when you die. You need to right-click again the enchanted bed after each use to take effect. This conflict with the Undead Totem.")) return;
     }
 
 
